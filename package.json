@@ -1,0 +1,68 @@
+{
+  "name": "fastify-auto-push",
+  "version": "0.4.0",
+  "description": "HTTP/2 auto-push middleware for fastify",
+  "main": "build/src/index.js",
+  "types": "build/src/index",
+  "files": [
+    "AUTHORS",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "README.md",
+    "build/src"
+  ],
+  "scripts": {
+    "test": "nyc ava",
+    "codecov": "nyc report --reporter=json && codecov -f coverage/*.json",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check && npm run license-check",
+    "license-check": "jsgl --local ."
+  },
+  "engines": {
+    "node": ">=9.4.0 || >8.9.4 <9"
+  },
+  "keywords": [
+    "http2",
+    "auto-push",
+    "server-push",
+    "fastify"
+  ],
+  "author": "Google LLC",
+  "license": "Apache-2.0",
+  "repository": "github:google/node-fastify-auto-push",
+  "ava": {
+    "files": [
+      "build/test/*-test.js"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "build/test"
+    ]
+  },
+  "dependencies": {
+    "cookie": "^0.3.1",
+    "fastify-plugin": "^1.5.0",
+    "fastify-static": "^2.3.4",
+    "h2-auto-push": "^0.4.1"
+  },
+  "devDependencies": {
+    "@types/cookie": "^0.3.2",
+    "@types/get-port": "^4.0.1",
+    "@types/node": "^10.12.30",
+    "@types/send": "^0.14.4",
+    "ava": "^2.0.0",
+    "codecov": "^3.2.0",
+    "fastify": "^2.0.1",
+    "get-port": "^5.0.0",
+    "gts": "^1.0.0",
+    "js-green-licenses": "^1.0.0",
+    "nyc": "^14.0.0",
+    "typescript": "~3.4.0"
+  }
+}
